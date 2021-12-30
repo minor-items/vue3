@@ -1,3 +1,4 @@
+import './public-path'
 import { createApp } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
 import App from './App.vue'
@@ -12,7 +13,7 @@ let instance: any = null
 let history: any = null
 const { __POWERED_BY_QIANKUN__ } = window
 
-function render(props: any = { container: '', name: '' }) {
+function render(props: any = {}) {
   const { container, name } = props
   history = createWebHistory(__POWERED_BY_QIANKUN__ ? `${process.env.BASE_URL}${name}` : process.env.BASE_URL)
   router = createRouter({

@@ -25,7 +25,7 @@ module.exports = {
   devServer: {
     hot: true,
     disableHostCheck: true,
-    port: 8007,
+    port: 9090,
     overlay: {
       warnings: false,
       errors: true
@@ -52,14 +52,17 @@ module.exports = {
   // 自定义webpack配置
   configureWebpack: {
     resolve: {
+      extensions: ['.js', 'ts', '.tsx', '.jsx', '.vue', '.styl', '.json'],
       alias: {
         '@': resolve('src'),
         '@api': resolve('src/api'),
-        '@store': resolve('src/store'),
-        '@router': resolve('src/router'),
-        '@config': resolve('src/config'),
         '@img': resolve('src/assets/img'),
-        '@style': resolve('src/assets/style')
+        '@config': resolve('src/config'),
+        '@mixins': resolve('src/mixins'),
+        '@router': resolve('src/router'),
+        '@store': resolve('src/store'),
+        '@utils': resolve('src/utils'),
+        '@layout': resolve('src/layout'),
       }
     },
     plugins: [

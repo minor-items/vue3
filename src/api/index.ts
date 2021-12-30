@@ -1,5 +1,5 @@
 
-const serveFiles = require.context('./../api/', true, /\.api.ts$/)
+const serveFiles = require.context('./modules/', true, /\.api.ts$/)
 
 const Interface: any = {}
 serveFiles.keys().forEach((key: string) => {
