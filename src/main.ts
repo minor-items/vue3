@@ -5,7 +5,9 @@ import App from './App.vue'
 import './registerServiceWorker'
 import API from './api'
 import route from './router'
-import store from './store'
+<%_ if (isVuex) { _%>
+  import store from "./store"
+<%_ } _%>
 
 const { routes, beforeEach, afterEach } = route
 let router = null
@@ -32,8 +34,10 @@ function render(props: any = {}) {
   instance = createApp(App)
   instance.use(API)
   instance.use(router)
-  instance.use(store)
-  instance.mount(container ? container.querySelector('#app') : '#app')
+  <%_ if (isVuex) { _%>
+    instance.use(store)
+  <%_ } _%>
+  instance.mount(container ? container.querySelector('#<%= packageName %>') : '#<%= packageName %>')
 }
 
 if (!__POWERED_BY_QIANKUN__) {
